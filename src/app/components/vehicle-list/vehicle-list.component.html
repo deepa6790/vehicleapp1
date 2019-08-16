@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div
+      class="layout col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-1 mt-2"
+      *ngFor="let vehicle of vehicles"
+    >
+      <div class="card">
+        <div *ngFor="let media of vehicle.media">
+          <img
+            class="card-img-top"
+            src="assets/{{ media.url }}"
+            alt="Vehicles"
+          />
+          <div class="card-body">
+            <h5 class="card-title mb-3 pt-1 pb-1">{{ media.name }}</h5>
+            <div *ngFor="let vehicledata of vehicle_details_array">
+              <div *ngIf="vehicle.id === vehicledata.id" class="card-text">
+                <p>From {{ vehicledata.price }}</p>
+                <p>{{ vehicledata.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
